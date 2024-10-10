@@ -26,7 +26,10 @@
 
 --
 
-- It increases ~~*capacity*~~ and *speed* by using multiple disks in parallel
+- It can increase *capacity* and *speed* by using multiple disks in parallel
+  - *capacity*: a RAID array with more than two drives will have an effective
+    capacity larger than a single disk
+  - *speed*: performance can be improved via parallelism
 
 - It increases *reliability* through *redundancy*, ensuring survival of data if
   a (small enough) subset of disks fails
