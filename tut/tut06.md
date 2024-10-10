@@ -235,6 +235,8 @@ Content is based on part09 of the lecture slides
 
 .invisible-slide-comment[
 
+See all footnotes below.
+
 [^dot_right]: `.right` is a syntax to align slide content to the right and can
 be ignored when reading the .md source
 
