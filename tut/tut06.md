@@ -60,7 +60,7 @@ provide the illusion of a single more reliable and/or more performant disk.
   - and depends on the mean time to repair
 
   > *E.g.*, MTBF of 100,000 hours, mean time to repair of 10 hours gives mean
-  > time to data loss of 500*106 hours (or 57,000 years) for a mirrored pair of
+  > time to data loss of $500*10^6$ hours (or 57,000 years) for a mirrored pair of
   > disks (assuming independent failures).
 
 ---
