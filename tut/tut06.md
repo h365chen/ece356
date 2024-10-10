@@ -1,19 +1,23 @@
-layout: true
+<!-- layout: true -->
 
-class: middle
+<!-- class: middle -->
 
 ---
 
-class: center, middle, inverse
+<!-- class: center, middle, inverse -->
 
 # RAID
 
 ## Redundant Arrays of Inexpensive/Independent Disks
 
 .right[
+
+  .invisible-slide-comment[See [^dot_right] about `.right`]
+
   Presented by Huanyi Chen
 
   huanyi.chen@uwaterloo.ca
+
 ]
 
 ---
@@ -32,7 +36,8 @@ class: center, middle, inverse
 > (approx. 42 days).
 
 ???
-<!-- `???` is a syntax used for slide show and can be ignored -->
+
+.invisible-slide-comment[See [^triple_question_marks] about `???`]
 
 RAID is *a disk organization technique* that uses multiple physical disks to
 provide the illusion of a single more reliable and/or more performant disk.
@@ -80,10 +85,11 @@ Practical systems generally use **block-level striping**.
 - How to recover: copy from mirror
 
 ???
-<!-- `???` is a syntax used for slide show and can be ignored -->
 
-People call it RAID "ten" but it will be more accurate to call it RAID
-"one zero".
+.invisible-slide-comment[See [^triple_question_marks] about `???`]
+
+People call it RAID "ten" but it seems to be more accurate to call it RAID "one
+zero".
 
 ---
 
@@ -149,6 +155,8 @@ Assume we have 5 disks in total
 
 ???
 
+.invisible-slide-comment[See [^triple_question_marks] about `???`]
+
 Why are there four physical I/Os for a small write?
 
 Answer: it seems to be how it was designed, as stated here
@@ -177,7 +185,8 @@ Estimate how many seconds it takes to:
 *(write down the formula and plug in numbers but do not simplify)*
 
 ???
-<!-- `???` is a syntax used for slide show and can be ignored -->
+
+.invisible-slide-comment[See [^triple_question_marks] about `???`]
 
 For the first question, there is a 9x speed-up if we write all 10 disks in
 parallel. (For each stripe, 9 disks receive data and 1 receives parity.)
@@ -207,7 +216,8 @@ Estimate how many seconds it takes to:
 *(write down the formula and plug in numbers but do not simplify)*
 
 ???
-<!-- `???` is a syntax used for slide show and can be ignored -->
+
+.invisible-slide-comment[See [^triple_question_marks] about `???`]
 
 For the first question, there is a 7x speed-up if we read all 8 disks in
 parallel. (For each stripe, 7 disks return data and 1 returns parity.)
@@ -222,3 +232,13 @@ Formula: 100GB / (4 mirrored pairs * 100MB/s/disk)
 ---
 
 Content is based on part09 of the lecture slides
+
+.invisible-slide-comment[
+
+[^dot_right]: `.right` is a syntax to align slide content to the right and can
+be ignored when reading the .md source
+
+[^triple_question_marks]: `???` is a syntax used for slide show and can be
+ignored when reading the .md source
+
+]
