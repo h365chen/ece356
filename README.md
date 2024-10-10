@@ -20,6 +20,10 @@ var slideshow = remark.create({
 });
 ```
 
+- Press `F` to enter fullscreen mode
+- Press `P` to enter presenter mode
+- Press `H` to see all slide show commands
+
 ---
 
 Huanyi Chen

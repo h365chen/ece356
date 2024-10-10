@@ -239,6 +239,7 @@ Content is based on part09 of the lecture slides
 be ignored when reading the .md source
 
 [^triple_question_marks]: `???` is a syntax used for slide show and can be
-ignored when reading the .md source
+ignored when reading the .md source. It states that the content after `???` is
+only visible in the presenter mode.
 
 ]
