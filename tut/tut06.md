@@ -66,6 +66,13 @@ provide the illusion of a single more reliable and/or more performant disk.
   > time to data loss of $500*10^6$ hours (or 57,000 years) for a mirrored pair of
   > disks (assuming independent failures).
 
+???
+
+.invisible-slide-comment[See [^triple_question_marks] about `???`]
+
+The example was from a text book but I'm not quite sure how mean time to data
+loss is calculated. Worth further investigation :)
+
 ---
 
 ## Improvement in Performance via Parallelism
