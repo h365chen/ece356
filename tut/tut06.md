@@ -70,8 +70,8 @@ provide the illusion of a single more reliable and/or more performant disk.
 
 .invisible-slide-comment[See [^triple_question_marks] about `???`]
 
-The example was from a text book but I'm not quite sure how mean time to data
-loss is calculated. Worth further investigation :)
+Considering a mirrored pair of disks, the mean time to data loss is
+100000^2 / (2 * 10) = 500 * 10^6. 500 * 10^ / 8760 (days in a calendar year) = ~57000 years.
 
 ---
 
