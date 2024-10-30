@@ -73,6 +73,14 @@ provide the illusion of a single more reliable and/or more performant disk.
 Considering a mirrored pair of disks, the mean time to data loss is
 100000^2 / (2 * 10) = 500 * 10^6. 500 * 10^ / 8760 (days in a calendar year) = ~57000 years.
 
+The original paper of RAID, https://ntrs.nasa.gov/api/citations/19920010046/downloads/19920010046.pdf, shows the derivation, which is modelled via a Markov chain model.
+
+The simplified formula can be shown as such:
+
+MTTDL_Indep = MTTF_disk^2 / (N(N+1)(MTTR_disk))
+
+As we showed above, the MTTF is 10000 hours and there are 2 disks, which is N + 1, thus N = 1. The MTTR is 10 hours.
+
 ---
 
 ## Improvement in Performance via Parallelism
