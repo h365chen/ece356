@@ -88,7 +88,7 @@ Comments:
 
 ## Nested Loop Join
 
-Nested Loop Join for $R$ Join $R$:
+Nested Loop Join for $R$ Join $S$:
 
 ```
 for each tuple r in R do
@@ -153,6 +153,9 @@ Comments:
 
   - Best-case: same as nested loop join
   - Worst-case: $b_r \ast b_s + b_r$ block transfers and $2 \ast b_r$ seeks
+    - Why $2 \ast b_r$? It's because each scan of the inner relation $S$
+      requires one seek, and the block of the outer relation $R$ requires one
+      seek.
 
 ---
 
@@ -208,7 +211,9 @@ Comments:
 
   See <https://dev.mysql.com/doc/employee/en/sakila-structure.html>
 
-  .invisible-slide-comment[Why the hell is `sakila-structure` in the url?]
+  DB at: <https://github.com/datacharmer/test_db>
+
+  .invisible-slide-comment[Why is it `sakila-structure` in the url?]
 
 ---
 
