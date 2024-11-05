@@ -117,7 +117,10 @@ end
 Comments:
 
   - Best-case: $b_r + b_s$ block transfers and $2$ seeks
-  - Worst-case: $n_r \ast b_s + b_r$ block transfers and $b_r + b_s$ seeks
+  - Worst-case: $n_r \ast b_s + b_r$ block transfers and $n_r + b_r$ seeks
+    - Why $n_r + b_r$? It's because each scan of the inner relation $S$ requires
+      one seek and there are $n_r$ scans, and each block of the outer relation
+      $R$ requires one seek.
 
 ---
 
@@ -156,8 +159,8 @@ Comments:
   - Best-case: same as nested loop join
   - Worst-case: $b_r \ast b_s + b_r$ block transfers and $2 \ast b_r$ seeks
     - Why $2 \ast b_r$? It's because each scan of the inner relation $S$
-      requires one seek, and the block of the outer relation $R$ requires one
-      seek.
+      requires one seek and there are $b_r$ scans, and each block of the outer
+      relation $R$ requires one seek.
 
 ---
 
