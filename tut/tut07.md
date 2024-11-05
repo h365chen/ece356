@@ -8,6 +8,8 @@
 
 # Query Processing for Join Operations
 
+.invisible-slide-comment[See [README](../README.md) to turn this markdown to a slide presentation]
+
 .right[
 
   .invisible-slide-comment[See [^dot_right] about `.right`]

@@ -8,6 +8,8 @@
 
 # RAID
 
+.invisible-slide-comment[See [README](../README.md) to turn this markdown to a slide presentation]
+
 ## Redundant Arrays of Inexpensive/Independent Disks
 
 .right[
