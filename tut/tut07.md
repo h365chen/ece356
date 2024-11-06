@@ -350,7 +350,7 @@ Comments:
 ### Try adding an index
 
 ```sql
-create index emp_birth on employees (emp_no, birth_date, first_name, last_name);
+create unique index emp_birth on employees (emp_no, birth_date, first_name, last_name);
 
 -- to drop it later
 -- alter table employees drop index emp_birth;
@@ -374,6 +374,40 @@ Comments:
   | 1  | SIMPLE      | employees | <null>     | eq_ref | PRIMARY,emp_birth | PRIMARY | 4       | employees.titles.emp_no | 1      | 33.33    | Using where              |
   +----+-------------+-----------+------------+--------+-------------------+---------+---------+-------------------------+--------+----------+--------------------------+
   ```
+
+  We can use `use index` to make the optimizer use the index
+
+  ```sql
+  explain
+  select straight_join
+    birth_date,
+    title
+  from
+    titles
+    inner join employees use index (emp_birth) using (emp_no)
+  where
+    birth_date > "1960-01-01"
+    and title = "Manager";
+  ```
+
+  It shows
+
+  ```sh
+  +----+-------------+-----------+------------+-------+---------------+-----------+---------+-------------------------+--------+----------+--------------------------+
+  | id | select_type | table     | partitions | type  | possible_keys | key       | key_len | ref                     | rows   | filtered | Extra                    |
+  +----+-------------+-----------+------------+-------+---------------+-----------+---------+-------------------------+--------+----------+--------------------------+
+  | 1  | SIMPLE      | titles    | <null>     | index | PRIMARY       | PRIMARY   | 209     | <null>                  | 442545 | 10.0     | Using where; Using index |
+  | 1  | SIMPLE      | employees | <null>     | ref   | emp_birth     | emp_birth | 4       | employees.titles.emp_no | 1      | 33.33    | Using where; Using index |
+  +----+-------------+-----------+------------+-------+---------------+-----------+---------+-------------------------+--------+----------+--------------------------+
+  ```
+
+  We can see under `type`, without the index, it is `eq_ref`, while with the
+  index, it becomes `ref`. Based on [MySQL
+  Doc](<https://dev.mysql.com/doc/refman/8.0/en/explain-output.html#jointype_eq_ref>),
+  we know that `eq_ref` is better than `ref`. That's the reason why it does not
+  use the index. Even though using the index is pretty much the same as using
+  the primary key (same cardinality), the optimizer still chooses to use the
+  primary key. The reason might stem from the implementation, among others.
 
 ---
 
